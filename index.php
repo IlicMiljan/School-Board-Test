@@ -1,8 +1,7 @@
 <?php
-    require_once 'config/autoload.php';
+    require_once 'vendor/autoload.php';
 
     use Core\Router;
-    use Core\Template;
 
     Router::Add('/boards/add/(.*)/(.*)', function($BoardName, $Format) {
         $BoardController = new \App\Controllers\BoardController();
