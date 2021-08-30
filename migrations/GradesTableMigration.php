@@ -9,7 +9,7 @@
         public function run() {
             $SQL = "CREATE TABLE IF NOT EXISTS `Grades` (
               ID        INT(10) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-              StudentID    INT(10) UNSIGNED,
+              StudentID    INT(10) UNSIGNED NOT NULL,
               Grade     TINYINT(2) NOT NULL,
               Timestamp DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP, 
               FOREIGN KEY (StudentID) REFERENCES Students(ID)    
