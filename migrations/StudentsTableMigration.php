@@ -9,6 +9,7 @@
         public function run() {
             $SQL = "CREATE TABLE IF NOT EXISTS `Students` (
               ID        INT(10) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+              Type      VARCHAR(8) NOT NULL,
               Name      VARCHAR(255) NOT NULL,
               Timestamp DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
             )";
