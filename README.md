@@ -4,6 +4,7 @@ Quantox Tech Assessment
 # Installation
 
 To install SchoolBoardTest Script, you need to run `composer install`.
+After Composer Installation is finished, you need to change MySQL Database Login Credentials inside `config/database.php` 
 
 # Migrations
 
