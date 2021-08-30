@@ -5,11 +5,11 @@
 
   class Student extends Model {
 
-      public function CreateStudent($Type, $Name) {
+      public function CreateStudent($BoardID, $Name) {
 
-          $SQL = "INSERT INTO Students (Type, Name) VALUES (:Type, :Name)";
+          $SQL = "INSERT INTO Students (BoardID, Name) VALUES (:BoardID, :Name)";
           $this->DB->Query($SQL);
-          $this->DB->Bind(":Type", $Type);
+          $this->DB->Bind(":BoardID", $BoardID);
           $this->DB->Bind(":Name", $Name);
 
           if($this->DB->Execute())

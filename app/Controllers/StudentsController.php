@@ -1,6 +1,7 @@
 <?php
     namespace App\Controllers;
 
+    use App\Models\Board;
     use App\Models\Student;
     use Core\Security;
 
@@ -10,25 +11,16 @@
             $Type = Security::Input($Type);
             $Name = Security::Input($Name);
 
-            switch (strtoupper($Type)) {
-              case 'CSM' :
-                  $Type = 'CSM';
-                  break;
-              case 'CSMB':
-                  $Type = 'CSMB';
-                  break;
-              default:
-                  $Type = NULL;
-                  break;
-            }
+            $Board = new Board();
+            $BoardData = $Board->GetBoard(strtoupper($Type));
 
-            if($Type == NULL) {
+            if($BoardData == FALSE) {
                 http_response_code(400);
                 exit();
             }
 
             $Student = new Student();
-            $Student->CreateStudent($Type, $Name);
+            $Student->CreateStudent($BoardData['ID'], $Name);
 
             $Data['Success'] = TRUE;
 
