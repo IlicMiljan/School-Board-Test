@@ -2,6 +2,9 @@
     require_once 'config/config.php';
     require_once 'config/database.php';
 
+    // Helpers
+    require_once 'helpers/xml-helper.php';
+
     spl_autoload_register(function($ClassName) {
         $CorePath = "{$ClassName}.Class.php";
         $UserPath = "{$ClassName}.php";

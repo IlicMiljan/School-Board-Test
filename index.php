@@ -15,6 +15,11 @@
         return $StudentController->AddNewStudent($Type, $Name);
     }, 'GET');
 
+    Router::Add('/students/([0-9]*)',function($StudentID) {
+        $StudentController = new \App\Controllers\StudentsController();
+        return $StudentController->StudentResult($StudentID);
+    }, 'GET');
+
     Router::Add('/grades/add/([0-9]*)/([0-9]*)', function($StudentID, $Grade) {
         $GradeController = new \App\Controllers\GradeController();
 
