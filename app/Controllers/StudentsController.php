@@ -2,10 +2,14 @@
     namespace App\Controllers;
 
     use App\Models\Student;
+    use Core\Security;
 
     class StudentsController {
 
         public function AddNewStudent($Type, $Name) {
+            $Type = Security::Input($Type);
+            $Name = Security::Input($Name);
+
             switch (strtoupper($Type)) {
               case 'CSM' :
                   $Type = 'CSM';

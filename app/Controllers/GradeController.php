@@ -2,10 +2,13 @@
     namespace App\Controllers;
 
     use App\Models\Grade;
+    use Core\Security;
 
     class GradeController {
 
         public function AddNewGrade($StudentID, $StudentGrade) {
+            $StudentID    = Security::Input($StudentID);
+            $StudentGrade = Security::Input($StudentGrade);
 
             $Grade = new Grade();
 

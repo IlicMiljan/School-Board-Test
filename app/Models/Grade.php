@@ -9,7 +9,7 @@
        * @throws \Exception
        */
       public function CreateGrade($StudentID, $Grade) {
-          $Student = new Student();
+          $Student     = new Student();
           $StudentData =  $Student->GetStudent($StudentID);
 
           if($StudentData != FALSE) {
