@@ -18,4 +18,17 @@
           return FALSE;
       }
 
+      public function GetStudent($ID) {
+
+          $SQL = "SELECT * FROM Students WHERE ID = :ID";
+          $this->DB->Query($SQL);
+          $this->DB->Bind(":ID", $ID);
+          $this->DB->Execute();
+
+          if($this->DB->RowCount() > 0)
+              return $this->DB->Single();
+
+          return FALSE;
+      }
+
   }

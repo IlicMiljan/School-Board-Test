@@ -9,4 +9,9 @@
         $StudentController->AddNewStudent($Type, $Name);
     }, 'POST');
 
+    Router::Add('/grades/add/([0-9]*)/([0-9]*)', function($StudentID, $Grade) {
+        $GradeController = new \App\Controllers\GradeController();
+        $GradeController->AddNewGrade($StudentID, $Grade);
+    }, 'POST');
+
     Router::Run();
