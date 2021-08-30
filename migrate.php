@@ -1,5 +1,5 @@
 <?php
-    require_once 'config/autoload.php';
+    require_once 'vendor/autoload.php';
 
     use Migrations\BoardsTableMigration;
     use Migrations\GradesTableMigration;
