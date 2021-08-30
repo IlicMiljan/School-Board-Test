@@ -34,6 +34,11 @@
             $Student = new Student();
             $StudentData = $Student->GetStudentWithGrades($StudentID);
 
+            if($StudentData == FALSE) {
+                http_response_code(400);
+                exit();
+            }
+
             $Format   = NULL;
             $Type     = NULL;
             $Data     = array();
@@ -68,9 +73,13 @@
 
             switch ($Format) {
                 case 'JSON':
+                    header('Content-type: application/json');
+
                     echo json_encode($Data);
                     break;
                 case 'XML':
+                    header('Content-type: application/xml');
+
                     $XML = new SimpleXMLElement('<?xml version="1.0"?><Student></Student>');
                     ArrayToXML($Data, $XML);
 
