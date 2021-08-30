@@ -8,17 +8,17 @@
         $BoardController = new \App\Controllers\BoardController();
 
         return $BoardController->AddNewBoard($BoardName, $Format);
-    }, 'POST');
+    }, 'GET');
 
     Router::Add('/students/add/(.*)/(.*)',function($Type, $Name) {
         $StudentController = new \App\Controllers\StudentsController();
         return $StudentController->AddNewStudent($Type, $Name);
-    }, 'POST');
+    }, 'GET');
 
     Router::Add('/grades/add/([0-9]*)/([0-9]*)', function($StudentID, $Grade) {
         $GradeController = new \App\Controllers\GradeController();
 
         return $GradeController->AddNewGrade($StudentID, $Grade);
-    }, 'POST');
+    }, 'GET');
 
     Router::Run();

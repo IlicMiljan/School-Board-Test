@@ -18,6 +18,42 @@
             $this->DB->Query($SQL);
             $this->DB->Execute();
 
+            $SQL = "SELECT * FROM Grades";
+            $this->DB->Query($SQL);
+            $this->DB->Execute();
+
+            if($this->DB->RowCount() == 0) {
+                $SQL = "INSERT INTO Grades (StudentID, Grade) VALUES (:StudentID, :Grade)";
+                $this->DB->Query($SQL);
+                $this->DB->Bind(":StudentID", 1);
+                $this->DB->Bind(":Grade", 7);
+                $this->DB->Execute();
+
+                $SQL = "INSERT INTO Grades (StudentID, Grade) VALUES (:StudentID, :Grade)";
+                $this->DB->Query($SQL);
+                $this->DB->Bind(":StudentID", 1);
+                $this->DB->Bind(":Grade", 9);
+                $this->DB->Execute();
+
+                $SQL = "INSERT INTO Grades (StudentID, Grade) VALUES (:StudentID, :Grade)";
+                $this->DB->Query($SQL);
+                $this->DB->Bind(":StudentID", 2);
+                $this->DB->Bind(":Grade", 6);
+                $this->DB->Execute();
+
+                $SQL = "INSERT INTO Grades (StudentID, Grade) VALUES (:StudentID, :Grade)";
+                $this->DB->Query($SQL);
+                $this->DB->Bind(":StudentID", 2);
+                $this->DB->Bind(":Grade", 7);
+                $this->DB->Execute();
+
+                $SQL = "INSERT INTO Grades (StudentID, Grade) VALUES (:StudentID, :Grade)";
+                $this->DB->Query($SQL);
+                $this->DB->Bind(":StudentID", 2);
+                $this->DB->Bind(":Grade", 5);
+                $this->DB->Execute();
+            }
+
             echo "Table <b>Grades</b> Successfully Created! <br/>";
         }
 
